@@ -1,0 +1,19 @@
+Showing analitically that the critical probability for site percolation on a triangular lattice is $p_c = 1/2$.
+
+Using the real space renormalization of a 3-site connection on a triangular lattice we can come up with the percolation properties of the nodes to solve for the critical point $p_c$. Each of these nodes are made up of a a 3-site triangle connection. There is flow through these nodes if there are at least two of the nodes activated. Since each node has an activation probability of $p$ then the change of flow through a node $P'$ is the sum of the probabilities of each configuration appearing.
+
+There is one configuration state with all the sites active, this happens with probability $p^3$. There are then three configurations in which two of the sites are activated, each of those configurations have a $p^2 (1 - p)$ chance of occuring. Thus the change of a node appearing with an active flow state is,
+
+\[
+  p' = f(p) = p^3 + 3 p^2 (1 - p)  
+\]
+
+There are two important states to check for our node probability. If $p = 0$ then $p' = 0$. If $p = 1$ then $p' = 1$. Our equation satisfies these two requirements
+
+\[
+  f(0) = 0^3 + 3 * 0^2 (1 - 0) = 0
+\]
+
+\[
+  f(1) = 1^3 + 3 * 1^2 (1 - 1) = 1
+\]

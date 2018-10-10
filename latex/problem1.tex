@@ -1,0 +1,34 @@
+1-d Theoretical Percolation
+
+On an infinite 1-d lattice forest with a tree present at any site with probability $p$. The probability of a tree not appearing is then $1 - p$. 
+
+The expected distribution of forest sizes $L$ is the chance that a forest will extend for $l$ sites and then be bordered by two non-tree sites. This equation for 1-d is
+\[
+  F(p, l)
+  =
+    p^l
+  \addtag
+\]
+
+To find the critical point for a 1-d lattice $p_c$ we need to find when the forest creates one giant component. That is when $l$ become massive (infinte)
+
+\[
+  <l> = \sum_0^{\infty} l p^l
+\]
+
+\[
+  p_c = 
+    \lim_{l \to \infty} L(p,l)
+  \addtag
+\]
+
+\[
+  p_c = 
+    \lim_{l \to \infty} p^l 
+  \addtag
+\]
+
+\[
+  p_c = 1
+  \addtag
+\]
