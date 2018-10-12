@@ -15,13 +15,19 @@ main = function() {
     }
     else {
       forest[new_loc@x, new_loc@y] = TRUE
-      getForestDamageFromStrikes(forest)
+      avg_risk = getAvgForestRisk(forest)
+      print(avg_risk)
     }
   }
 
 }
 
+getAvgForestRisk = function(forest) {
+  forest_sizes = calculateForestSize(forest)
+  avg_trees_damaged = getForestDamageFromStrikes(forest_sizes)
 
+  return (avg_trees_damaged)
+}
 
 getLightningStrikeProbablilities = function(size) {
   lightning_probabilities = matrix(1 / (size * size), nrow = size, ncol = size)
