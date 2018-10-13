@@ -16,7 +16,7 @@ Point = function(x, y) {
   return (new ('Point', x=x, y=y))
 }
 
-getPointNeighbors = function(forest, point) {
+getPointNeighbors = function(point, size) {
   point1 = Point(point@x + 1, point@y)
   point2 = Point(point@x - 1, point@y)
   point3 = Point(point@x, point@y + 1)
@@ -26,7 +26,7 @@ getPointNeighbors = function(forest, point) {
 
   valid_neighbors = c()
   for (neighbor in neighbors) {
-    if (pointIsInBounds(forest, neighbor)) {
+    if (pointIsInBounds(neighbor, size)) {
       valid_neighbors = c(valid_neighbors, neighbor)
     }
   }
@@ -40,3 +40,11 @@ pointIsInBounds = function(point, size) {
   return (x > 0 && x <= size && y > 0 && y <= size)
 }
 
+pointInVector = function(test, vector) {
+  for (point in vector) {
+    if (test@x == point@x && test@y == point@y) {
+      return (TRUE)
+    }
+  }
+  return (FALSE)
+}

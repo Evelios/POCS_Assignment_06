@@ -1,10 +1,24 @@
 source('Util.R')
 
+getNormalizedLargestForest = function(forest) {
+  return (getLargestForestSize(forest) / getForestDim(forest))
+}
+
+getLargestForestSize = function(forest) {
+  return(max(calculateForestSize(forest)))
+}
+
+siteIsOccupied = function(forest, point) {
+  return (forest[point@x, point@y]) 
+}
+
+getForestDim = function(forest) {
+  return (dim(forest)[[1]])
+}
+
 calculateForestSize = function(forest) {
   forest_sizes = 1*forest
-  size = getForestSize(forest)
-
-  forest_sizes
+  size = getForestDim(forest)
 
   for (y in 1:size) {
     for (x in 1:size) {
@@ -22,6 +36,7 @@ calculateForestSizesFromLocation = function(forest, point) {
     return (forest)
   }
 
+  forest_size = getForestDim(forest)
   forest_size = 0
   frontier = c(point)
   explored = c()
@@ -38,7 +53,7 @@ calculateForestSizesFromLocation = function(forest, point) {
       refill_locations = c(refill_locations, to_explore)
 
       # Add Neighbors
-      neighbors = getPointNeighbors(forest, to_explore)
+      neighbors = getPointNeighbors(to_explore, size)
 
       valid_neighbors = c()
       for (neighbor in neighbors) {
@@ -59,4 +74,3 @@ calculateForestSizesFromLocation = function(forest, point) {
 
   return (updated_forest)
 }
-
